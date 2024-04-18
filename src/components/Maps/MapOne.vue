@@ -6,7 +6,7 @@ import { onMounted } from 'vue'
 
 onMounted(() => {
   new jsVectorMap({
-    map: 'us_aea_en',
+    map: 'parkGrid',
                 selector: '#mapOne',
                 zoomButtons: true,
 
@@ -19,24 +19,9 @@ onMounted(() => {
                         fill: '#3056D3'
                     }
                 },
-                regionLabelStyle: {
-                    initial: {
-                        fontFamily: 'Satoshi',
-                        fontWeight: 'semibold',
-                        fill: '#fff'
-                    },
-                    hover: {
-                        cursor: 'pointer'
-                    }
-                },
+                
 
-                labels: {
-                    regions: {
-                        render(code: string) {
-                            return code.split('-')[1];
-                        }
-                    }
-                }
+                
             });
         });
 </script>
