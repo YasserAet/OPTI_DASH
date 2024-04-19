@@ -197,15 +197,15 @@ span.flatpickr-weekday,
     @apply flex h-7.5 w-7.5 items-center justify-center rounded border border-stroke bg-white px-0 pt-0 pb-0.5 text-2xl leading-none text-body hover:border-primary hover:bg-primary hover:text-white dark:border-strokedark dark:text-bodydark dark:bg-meta-4 dark:hover:border-primary dark:hover:text-white dark:hover:bg-primary;
 }
 
-.mapOne .jvm-zoom-btn {
+.ParkMap .jvm-zoom-btn {
     @apply left-auto !top-auto bottom-0;
 }
 
-.mapOne .jvm-zoom-btn.jvm-zoomin {
+.ParkMap .jvm-zoom-btn.jvm-zoomin {
     @apply right-10;
 }
 
-.mapOne .jvm-zoom-btn.jvm-zoomout {
+.ParkMap .jvm-zoom-btn.jvm-zoomout {
     @apply right-0;
 }
 

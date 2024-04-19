@@ -6,7 +6,7 @@ import VueApexCharts from 'vue3-apexcharts'
 const chartData = {
   series: [
     {
-      name: 'Sales',
+      name: 'renewed',
       data: [44, 55, 41, 67, 22, 43, 65]
     },
     {

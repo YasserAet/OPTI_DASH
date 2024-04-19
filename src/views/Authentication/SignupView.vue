@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import DefaultAuthCard from '@/components/Auths/DefaultAuthCard.vue'
 import InputGroup from '@/components/Auths/InputGroup.vue'
-import BreadcrumbDefault from '@/components/Breadcrumbs/BreadcrumbDefault.vue'
-import DefaultLayout from '@/layouts/DefaultLayout.vue'
+// import BreadcrumbDefault from '@/components/Breadcrumbs/BreadcrumbDefault.vue'
+// import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 import { ref } from 'vue'
 
@@ -10,13 +10,10 @@ const pageTitle = ref('Sign Up')
 </script>
 
 <template>
-  <DefaultLayout>
-    <!-- Breadcrumb Start -->
-    <BreadcrumbDefault :pageTitle="pageTitle" />
-    <!-- Breadcrumb End -->
+ 
 
-    <DefaultAuthCard subtitle="Start for free" title="Sign Up to Optipark">
-      <form>
+    <DefaultAuthCard  title="Sign Up to Optipark">
+      <form >
         <InputGroup label="Name" type="text" placeholder="Enter your full name">
           <svg
             class="fill-current"
@@ -156,5 +153,4 @@ const pageTitle = ref('Sign Up')
         </div>
       </form>
     </DefaultAuthCard>
-  </DefaultLayout>
 </template>

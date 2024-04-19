@@ -2,10 +2,10 @@
 import { ref } from 'vue'
 
 const packages = ref([
-  { name: 'Free Package', price: '$0.00', invoiceDate: 'Jan 13, 2025', status: 'Paid' },
-  { name: 'Standard Package', price: '$59.00', invoiceDate: 'Jan 13, 2025', status: 'Paid' },
-  { name: 'Business Package', price: '$99.00', invoiceDate: 'Jan 13, 2025', status: 'Unpaid' },
-  { name: 'Standard Package', price: '$59.00', invoiceDate: 'Jan 13, 2025', status: 'Pending' }
+  { name: 'First Parking', price : '500.00 MAD', invoiceDate: 'Jan 13, 2025', status: 'Paid' },
+  { name: 'Second Parking', price: '590.00 MAD', invoiceDate: 'Jan 13, 2025', status: 'Paid' },
+  { name: 'Third Parking', price: '$99.00', invoiceDate: 'Jan 13, 2025', status: 'Unpaid' },
+  { name: 'Fourth Parking', price: '$59.00', invoiceDate: 'Jan 13, 2025', status: 'Pending' }
 ])
 </script>
 

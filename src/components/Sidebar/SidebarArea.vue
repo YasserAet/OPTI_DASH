@@ -113,7 +113,7 @@ const menuGroups = ref([
                     fill="white"
                   />
                 </svg>`,
-        label: 'Form Elements', 
+        label: 'Add parking', 
         route: '/forms/form-elements',
         // children: [
           // { label: 'Form Elements', route: '/forms/form-elements' },

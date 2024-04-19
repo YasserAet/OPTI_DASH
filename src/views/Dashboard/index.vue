@@ -5,7 +5,7 @@ import ProductPerformance from '@/components/dashboard/ProductPerformance.vue';
 </script>
 <template>
     <v-row>
-        <v-col cols="12">
+        <!-- <v-col cols="12"> -->
             <v-row>
                 <!-- Sales overview -->
                 <v-col cols="12" lg="8">
@@ -33,9 +33,9 @@ import ProductPerformance from '@/components/dashboard/ProductPerformance.vue';
                     <ProductCards />
                 </v-col>
             </v-row>
-        </v-col>
-        <v-col class="text-center mt-2">
+        <!-- </v-col> -->
+        <!-- <v-col class="text-center mt-2">
             <p class="text-muted">Design and Developed by <a flat variant="text" href="#" target="_blank" class="pl-1 text-primary">Aitali Yasser & Amine Elharchi</a></p>
-        </v-col>
+        </v-col> -->
     </v-row>
 </template>
