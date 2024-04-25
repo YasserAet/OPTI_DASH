@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UserIcon, MailIcon, ListCheckIcon } from 'vue-tabler-icons';
+// import { UserIcon, MailIcon, ListCheckIcon } from 'vue-tabler-icons';
 </script>
 
 <template>

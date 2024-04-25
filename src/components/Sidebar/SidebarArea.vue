@@ -114,7 +114,7 @@ const menuGroups = ref([
                   />
                 </svg>`,
         label: 'Add parking', 
-        route: '/forms/form-elements',
+        route: '#',
         // children: [
           // { label: 'Form Elements', route: '/forms/form-elements' },
           // { label: 'Form Layout', route: '/forms/form-layout' }
@@ -141,10 +141,9 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'Tables',
-        route: '/tables'
+        label: 'History',
+        route: '/history'
       },
-      
     ]
   },
 

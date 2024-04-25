@@ -91,7 +91,6 @@ const lotData = ref([
         <div class="flex items-center justify-center p-2.5 xl:p-5">
           <p class="text-meta-3">{{ lot.otime }}</p>
         </div>
-        
         <div class="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
           <p class="text-black dark:text-white">{{ lot.renewed }}</p>
         </div>       
