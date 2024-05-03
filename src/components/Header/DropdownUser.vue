@@ -1,12 +1,17 @@
 <script setup lang="ts">
 import { onClickOutside } from '@vueuse/core'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const target = ref(null)
 const dropdownOpen = ref(false)
+const admin = ref(JSON.parse(localStorage.getItem('admin') as string))
 
 onClickOutside(target, () => {
   dropdownOpen.value = false
+})
+
+onMounted(() => {
+  admin.value = JSON.parse(localStorage.getItem('admin') ?? '')
 })
 </script>
 
@@ -18,12 +23,12 @@ onClickOutside(target, () => {
       @click.prevent="dropdownOpen = !dropdownOpen"
     >
       <span class="hidden text-right lg:block">
-        <span class="block text-sm font-medium text-black dark:text-white">Aitali Yassir</span>
+        <span class="block text-sm font-medium text-black dark:text-white">{{ admin.name }}</span>
         <span class="block text-xs font-medium">Admin</span>
       </span>
 
       <span class="h-12 w-12 rounded-full">
-        <img src="@/assets/images/user/user-01.png" alt="User" />
+        <img :src="'/' + admin.profileImage" alt="User" />
       </span>
 
       <svg

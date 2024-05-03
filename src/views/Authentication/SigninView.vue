@@ -3,10 +3,40 @@ import DefaultAuthCard from '@/components/Auths/DefaultAuthCard.vue'
 import InputGroup from '@/components/Auths/InputGroup.vue'
 // import BreadcrumbDefault from '@/components/Breadcrumbs/BreadcrumbDefault.vue'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import { useRouter } from 'vue-router'
 
 import { ref } from 'vue'
 
+
+import axios from 'axios'; // Make sure to install axios using npm install axios
+
+const checkbox = ref(true);
+const email = ref('');
+const password = ref('');
+const router = useRouter();
+const signIn = async (event: Event) => {
+  event.preventDefault();
+  try {
+    console.log(email.value);
+    console.log(password.value);
+    const response = await axios.post('http://127.0.0.1:3000/login', { username: email.value, password: password.value });
+    const token = response.data.token;
+    const admin = response.data.admin;
+    // Store the token in localStorage
+    localStorage.setItem('token', token);
+    localStorage.setItem('admin', JSON.stringify(admin));
+
+
+    // Redirect to home route with data
+    
+    router.push({ path: '/', params: { admin: admin } });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const pageTitle = ref('Sign In')
+
 </script>
 
 <template>
@@ -16,8 +46,9 @@ const pageTitle = ref('Sign In')
     <!-- Breadcrumb End -->
 
     <DefaultAuthCard subtitle="Start for free" title="Sign In to Optipark">
-      <form>
-        <InputGroup label="Email" type="email" placeholder="Enter your email">
+      <form @submit="signIn">
+      
+        <InputGroup label="Email" type="email" placeholder="Enter your email" v-model="email" >
           <svg
             class="fill-current"
             width="22"
@@ -35,7 +66,7 @@ const pageTitle = ref('Sign In')
           </svg>
         </InputGroup>
 
-        <InputGroup label="Password" type="password" placeholder="6+ Characters, 1 Capital letter">
+        <InputGroup label="Password" type="password" placeholder="Enter your password" v-model="password" >
           <svg
             class="fill-current"
             width="22"

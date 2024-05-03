@@ -113,8 +113,8 @@ const menuGroups = ref([
                     fill="white"
                   />
                 </svg>`,
-        label: 'Form Elements', 
-        route: '/forms/form-elements',
+        label: 'Add Parking', 
+        route: '/parking',
         // children: [
           // { label: 'Form Elements', route: '/forms/form-elements' },
           // { label: 'Form Layout', route: '/forms/form-layout' }
@@ -141,7 +141,7 @@ const menuGroups = ref([
                     </clipPath>
                   </defs>
                 </svg>`,
-        label: 'Tables',
+        label: 'Data info',
         route: '/tables'
       },
       

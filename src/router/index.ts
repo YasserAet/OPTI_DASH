@@ -12,6 +12,8 @@ import ProfileView from '@/views/ProfileView.vue'
 import TablesView from '@/views/TablesView.vue'
 import AlertsView from '@/views/UiElements/AlertsView.vue'
 import ButtonsView from '@/views/UiElements/ButtonsView.vue'
+import parkingForm from '@/views/Parking/parkingForm.vue'
+import * as jwt_decode from 'jwt-decode';
 
 const routes = [
   {
@@ -99,7 +101,8 @@ const routes = [
     name: 'signin',
     component: SigninView,
     meta: {
-      title: 'Signin'
+      title: 'Signin',
+      public: true,
     }
   },
   {
@@ -107,7 +110,16 @@ const routes = [
     name: 'signup',
     component: SignupView,
     meta: {
-      title: 'Signup'
+      title: 'Signup',
+      public: true,
+    }
+  },
+  {
+    path:'/parking',
+    name: 'parking',
+    component: parkingForm,
+    meta: {
+      title: 'Parking'
     }
   }
 ]
@@ -120,9 +132,42 @@ const router = createRouter({
   }
 })
 
-router.beforeEach((to, from, next) => {
-  document.title = `Vue.js ${to.meta.title} | TailAdmin - Vue.js Tailwind CSS Dashboard Template`
-  next()
-})
+router.beforeEach(async (to, from, next) => {
+  const isPublic = to.matched.some(record => record.meta.public);
+  const token = localStorage.getItem('token');
+
+  if (!isPublic && token) {
+    try {
+      const { exp } = jwt_decode.jwtDecode(token); 
+      console.log(exp);
+      if (exp ?? 0 < new Date().getTime() / 1000) {
+        // Token has expired, refresh it
+        const response = await fetch('http://127.0.0.1:3000/refresh_token', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.ok) {
+          const { token: newToken } = await response.json();
+          localStorage.setItem('token', newToken);
+        } else {
+          // Refreshing the token failed, redirect to login
+          return next({ path:'/auth/signin', query: {redirect: to.fullPath} });
+        }
+      }
+    } catch (e) {
+      // Decoding the token failed, redirect to login
+      return next({ path:'/auth/signin', query: {redirect: to.fullPath} });
+    }
+  } else if (!isPublic && !token) {
+    // No token, redirect to login
+    return next({ path:'/auth/signin', query: {redirect: to.fullPath} });
+  }
+
+  document.title = `Vue.js ${to.meta.title} | Opti-Park`
+  next();
+});
 
 export default router

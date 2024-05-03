@@ -1,52 +1,48 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import BrandOne from '@/assets/images/brand/brand-01.svg'
-import BrandTwo from '@/assets/images/brand/brand-02.svg'
-import BrandThree from '@/assets/images/brand/brand-03.svg'
-import BrandFour from '@/assets/images/brand/brand-04.svg'
-import BrandFive from '@/assets/images/brand/brand-05.svg'
+import lotOne from '@/assets/images/brand/profile.jpg'
+import lotTwo from '@/assets/images/brand/profile.jpg'
+import lotThree from '@/assets/images/brand/profile.jpg'
+import lotFour from '@/assets/images/brand/profile.jpg'
+import lotFive from '@/assets/images/brand/profile.jpg'
+import { fa } from 'vuetify/locale'
 
-const brandData = ref([
+const lotData = ref([
   {
-    logo: BrandOne,
-    name: 'Google',
-    visitors: 3.5,
-    revenues: '5,768',
-    sales: 590,
-    conversion: 4.8
+    logo: lotOne,
+    name: 'MEDINA',
+    cliendid: '45_500',
+    otime: '1h20m',
+    renewed: false,
   },
   {
-    logo: BrandTwo,
-    name: 'Twitter',
-    visitors: 2.2,
-    revenues: '4,635',
-    sales: 467,
-    conversion: 4.3
+    logo: lotTwo,
+    name: 'CARREFOUR',
+    cliendid: 'E47_120',
+    otime: '0h20m',
+    renewed: false,
   },
   {
-    logo: BrandThree,
-    name: 'Github',
-    visitors: 2.1,
-    revenues: '4,290',
-    sales: 420,
-    conversion: 3.7
+    logo: lotThree,
+    name: 'MENARAMALL',
+    cliendid: 'J72_440',
+    otime: '1h10m',
+    renewed: true,
   },
   {
-    logo: BrandFour,
-    name: 'Vimeo',
-    visitors: 1.5,
-    revenues: '3,580',
-    sales: 389,
-    conversion: 2.5
+    logo: lotFour,
+    name: 'GUELIZ',
+    cliendid: 'F15_501',
+    otime: '2h30m',
+    renewed: false,
   },
   {
-    logo: BrandFive,
-    name: 'Facebook',
-    visitors: 3.5,
-    revenues: '6,768',
-    sales: 390,
-    conversion: 4.2
+    logo: lotFive,
+    name: 'MARJANE',
+    cliendid: 'E50_101',
+    otime: '1h30m',
+    renewed: true,
   }
 ])
 </script>
@@ -55,56 +51,50 @@ const brandData = ref([
   <div
     class="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1"
   >
-    <h4 class="mb-6 text-xl font-semibold text-black dark:text-white">Top Channels</h4>
+    <h4 class="mb-6 text-xl font-semibold text-black dark:text-white">Recent Parklots</h4>
 
     <div class="flex flex-col">
-      <div class="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
+      <div class="grid grid-cols-4 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-4">
         <div class="p-2.5 xl:p-5">
-          <h5 class="text-sm font-medium uppercase xsm:text-base">Source</h5>
+          <h5 class="text-sm font-medium uppercase xsm:text-base">Lot ID</h5>
         </div>
         <div class="p-2.5 text-center xl:p-5">
-          <h5 class="text-sm font-medium uppercase xsm:text-base">Visitors</h5>
+          <h5 class="text-sm font-medium uppercase xsm:text-base">Client ID</h5>
         </div>
         <div class="p-2.5 text-center xl:p-5">
-          <h5 class="text-sm font-medium uppercase xsm:text-base">Revenues</h5>
+          <h5 class="text-sm font-medium uppercase xsm:text-base">Occupation time</h5>
         </div>
         <div class="hidden p-2.5 text-center sm:block xl:p-5">
-          <h5 class="text-sm font-medium uppercase xsm:text-base">Sales</h5>
+          <h5 class="text-sm font-medium uppercase xsm:text-base">Renewed</h5>
         </div>
-        <div class="hidden p-2.5 text-center sm:block xl:p-5">
-          <h5 class="text-sm font-medium uppercase xsm:text-base">Conversion</h5>
-        </div>
+        
       </div>
 
       <div
-        v-for="(brand, key) in brandData"
+        v-for="(lot, key) in lotData"
         :key="key"
-        :class="`grid grid-cols-3 sm:grid-cols-5 ${
-          key === brandData.length - 1 ? '' : 'border-b border-stroke dark:border-strokedark'
+        :class="`grid grid-cols-4 sm:grid-cols- ${
+          key === lotData.length - 1 ? '' : 'border-b border-stroke dark:border-strokedark'
         }`"
       >
         <div class="flex items-center gap-3 p-2.5 xl:p-5">
           <div class="flex-shrink-0">
-            <img :src="brand.logo" alt="Brand" />
+            <img :src="lot.logo" alt="lot" style="width:50px;height: 50px;"/>
           </div>
-          <p class="hidden text-black dark:text-white sm:block">{{ brand.name }}</p>
+          <p class="hidden text-black dark:text-white sm:block">{{ lot.name }}</p>
         </div>
 
         <div class="flex items-center justify-center p-2.5 xl:p-5">
-          <p class="text-black dark:text-white">{{ brand.visitors }}K</p>
+          <p class="text-black dark:text-white">{{ lot.cliendid }}</p>
         </div>
 
         <div class="flex items-center justify-center p-2.5 xl:p-5">
-          <p class="text-meta-3">${{ brand.revenues }}</p>
+          <p class="text-meta-3">{{ lot.otime }}</p>
         </div>
-
+        
         <div class="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-          <p class="text-black dark:text-white">{{ brand.sales }}</p>
-        </div>
-
-        <div class="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-          <p class="text-meta-5">{{ brand.conversion }}%</p>
-        </div>
+          <p class="text-black dark:text-white">{{ lot.renewed }}</p>
+        </div>       
       </div>
     </div>
   </div>
