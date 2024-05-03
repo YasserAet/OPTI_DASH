@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-import lotOne from '@/assets/images/lot/lot-01.svg'
-import lotTwo from '@/assets/images/lot/lot-02.svg'
-import lotThree from '@/assets/images/lot/lot-03.svg'
-import lotFour from '@/assets/images/lot/lot-04.svg'
-import lotFive from '@/assets/images/lot/lot-05.svg'
+import lotOne from '@/assets/images/brand/profile.jpg'
+import lotTwo from '@/assets/images/brand/profile.jpg'
+import lotThree from '@/assets/images/brand/profile.jpg'
+import lotFour from '@/assets/images/brand/profile.jpg'
+import lotFive from '@/assets/images/brand/profile.jpg'
 import { fa } from 'vuetify/locale'
 
 const lotData = ref([
@@ -79,7 +79,7 @@ const lotData = ref([
       >
         <div class="flex items-center gap-3 p-2.5 xl:p-5">
           <div class="flex-shrink-0">
-            <img :src="lot.logo" alt="lot" />
+            <img :src="lot.logo" alt="lot" style="width:50px;height: 50px;"/>
           </div>
           <p class="hidden text-black dark:text-white sm:block">{{ lot.name }}</p>
         </div>
@@ -91,6 +91,7 @@ const lotData = ref([
         <div class="flex items-center justify-center p-2.5 xl:p-5">
           <p class="text-meta-3">{{ lot.otime }}</p>
         </div>
+        
         <div class="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
           <p class="text-black dark:text-white">{{ lot.renewed }}</p>
         </div>       
