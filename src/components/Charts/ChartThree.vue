@@ -51,7 +51,7 @@ const apexOptions = {
   >
     <div class="mb-3 justify-between gap-4 sm:flex">
       <div>
-        <h4 class="text-xl font-bold text-black dark:text-white">Visitors Analytics</h4>
+        <h4 class="text-xl font-bold text-black dark:text-white">cliendid Analytics</h4>
       </div>
       <div>
         <div class="relative z-20 inline-block">

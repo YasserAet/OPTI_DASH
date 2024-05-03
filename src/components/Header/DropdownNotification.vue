@@ -13,26 +13,26 @@ onClickOutside(target, () => {
 const notificationItems = ref([
   {
     route: '#',
-    title: 'Edit your information in a swipe',
+    title: '4 new lots has been reserved',
     details:
-      'Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.',
-    time: '12 May, 2025'
+      'client01 has just reserved the lot DF_05450.',
+    time: '12 May, 2024'
   },
   {
     route: '#',
-    title: 'It is a long established fact',
+    title: '2 new lots are free now',
     details: 'that a reader will be distracted by the readable.',
-    time: '24 Feb, 2025'
+    time: '24 Feb, 2024'
   },
   {
     route: '#',
-    title: 'There are many variations',
+    title: 'Client FG_2584 has been added',
     details: 'of passages of Lorem Ipsum available, but the majority have suffered',
-    time: '04 Jan, 2025'
+    time: '04 Jan, 2024'
   },
   {
     route: '#',
-    title: 'There are many variations',
+    title: 'lot DF_05450 has been reserved',
     details: 'of passages of Lorem Ipsum available, but the majority have suffered',
     time: '01 Dec, 2024'
   }
@@ -73,13 +73,14 @@ const notificationItems = ref([
     <!-- Dropdown Start -->
     <div
       v-show="dropdownOpen"
+      style="overflow: hidden;"
       class="absolute -right-27 mt-2.5 flex h-90 w-75 flex-col rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark sm:right-0 sm:w-80"
     >
       <div class="px-4.5 py-3">
         <h5 class="text-sm font-medium text-bodydark2">Notification</h5>
       </div>
 
-      <ul class="flex h-auto flex-col overflow-y-auto">
+      <ul class="flex h-auto flex-col overflow-y-hidden">
         <template v-for="(item, index) in notificationItems" :key="index">
           <li>
             <router-link
